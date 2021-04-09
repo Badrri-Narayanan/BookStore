@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
-import InputBox from '../components/input-box/input-box.component';
+
+import InputBox from '../../components/input-box/input-box.component';
+import { login } from '../../data/data'
+import { setAccessLevel } from '../../redux/access-level/access-level.action'
+import setIsSignedInState from '../../redux/is-signed-in/is-signed-in.action'
 
 import './login-page.styles.css';
 
-import {login} from '../data/data'
+import { connect } from 'react-redux'
 
-const LoginPage = () => {
+const LoginPage = ({setAccessLevel, setIsSignedInState}) => {
     const [loginCredentials, setLoginCredentials] = useState({
         email: '',
         password: '',
@@ -23,11 +27,13 @@ const LoginPage = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if(email === login[0].username && password === login[0].password) {
-            console.log("admin")
+            setAccessLevel("admin");
+            setIsSignedInState();
         } else if(email === login[1].username && password === login[1].password) {
-            console.log("guest")
+            setAccessLevel("guest")
+            setIsSignedInState();
         } else {
-            console.log("invalid credentials")
+            alert("invalid credentials")
         }
     }
 
@@ -63,4 +69,9 @@ const LoginPage = () => {
     );
 }
 
-export default LoginPage;
+const mapDispatchToProps = dispatch => ({
+    setAccessLevel : accessLevel => dispatch(setAccessLevel(accessLevel)),
+    setIsSignedInState : () => dispatch(setIsSignedInState())
+})
+
+export default connect(null, mapDispatchToProps)(LoginPage);

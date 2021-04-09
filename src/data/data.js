@@ -31,7 +31,7 @@ export var books = [
 
 ]
 
-export var author = [
+export const author = [
 	{
 		id: '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4b11', // unique random id auto generated
 		author_name: 'Jhumpa Lahiri',
