@@ -10,6 +10,7 @@ import BookList from '../../components/book-list/book-list.component';
 
 import './author.profile.styles.css'
 import AddBookForm from '../../components/add-book-form/add-book-form.component';
+import AuthorProfileHeader from '../../components/author-profile-header/author-profile-header.component';
 
 const AuthorProfilePage = (props) => {
     const {authorId} = props.match.params;
@@ -28,14 +29,14 @@ const AuthorProfilePage = (props) => {
     authorProfile = listOfAuthors.filter(author => (author.id === authorId))
     return (
         <div>
-            Author Profile Page
+            <AuthorProfileHeader authorName={authorProfile[0].author_name} />
             {
                 (authorProfile !== null)?
                     <div>
                         <AuthorItem {...authorProfile[0]} />
                         <hr/>
                         {bookFormHidden ? null:<AddBookForm toggleForm={showForm} />}
-                        <BookList />
+                        <BookList authorProfileId={authorId} />
                         <div className="book-options">
                             <div className="horizontal-bottom">
                                 <hr/>

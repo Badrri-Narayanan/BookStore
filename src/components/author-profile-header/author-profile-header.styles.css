@@ -1,0 +1,9 @@
+.author-profile-header {
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+}
+
+.search-box-container {
+    width: 900px;
+}

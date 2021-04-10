@@ -1,7 +1,8 @@
 import AuthorsListActionTypes from "./list_of_authors.types"
 
 const INITIAL_STATE = {
-    listOfAuthors : []
+    listOfAuthors : [],
+    authorSearch : '',
 }
 
 const authorsListReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ const authorsListReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 listOfAuthors : action.payload
+            }
+        case AuthorsListActionTypes.SET_AUTHOR_SEARCH_STRING :
+            return {
+                ...state,
+                authorSearch : action.payload
             }
         default:
             return state;

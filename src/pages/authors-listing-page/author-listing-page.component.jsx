@@ -6,7 +6,6 @@ const AuthorListingPage = () => {
 
     return (
         <div>
-            <h1>Author Listing Page</h1>
             <AuthorsList />
         </div>
     );

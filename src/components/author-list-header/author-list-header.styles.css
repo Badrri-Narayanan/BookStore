@@ -1,0 +1,17 @@
+.author-list-header {
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+    color: wheat;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 80px;
+}
+
+.author-search {
+    width: 1100px;
+    justify-content: center;
+}

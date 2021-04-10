@@ -7,25 +7,34 @@ import {author} from '../../data/data'
 import AuthorItem from '../../components/author-item/author-item.component';
 
 import './authors-list.styles.css'
+import AuthorListHeader from '../author-list-header/author-list-header.component';
 
-const AuthorsList = ({listOfAuthors, setListOfAuthors}) => {
+const AuthorsList = ({listOfAuthors, authorSearch, setListOfAuthors}) => {
     useEffect(() => {
         setListOfAuthors(author)
     }, [setListOfAuthors])
 
+    const filteredAuthorList = listOfAuthors.filter(
+        authorItem => authorItem.author_name.toLowerCase().includes(authorSearch.toLowerCase())
+    );
+
     return (
-        <div className="author-item-list">
-            {
-                listOfAuthors.map(({...otherAuhtorProps},idx) => (
-                    <AuthorItem key={idx} {...otherAuhtorProps} />
-                ))
-            }
+        <div>
+            <AuthorListHeader />
+            <div className="author-item-list">
+                {
+                    filteredAuthorList.map(({...otherAuhtorProps},idx) => (
+                        <AuthorItem key={idx} {...otherAuhtorProps} />
+                    ))
+                }
+            </div>
         </div>
     );
 }
 
 const mapStateToProps = state => ({
     listOfAuthors : state.authors_list.listOfAuthors,
+    authorSearch : state.authors_list.authorSearch,
 });
 
 const mapDispatchToProps = dispatch => ({

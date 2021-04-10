@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import LabeledInput from '../labeled-input/labeled-input.component';
 
 import './add-book-form.styles.css';
@@ -8,6 +8,13 @@ const AddBookForm = ({toggleForm}) => {
         event.preventDefault();
         return
     }
+
+    const inputRef = useRef();
+
+    useEffect(()=> {
+        inputRef.current.focus();
+    })
+
     return (
         <form onSubmit={(event) => handleSubmit(event)} className="add-book-form">
             <LabeledInput 
@@ -41,7 +48,7 @@ const AddBookForm = ({toggleForm}) => {
                 type="date"
             />
             <div className="login-options">
-                <input type="button" onClick={() => toggleForm()} className="btn btn-default" value="Cancel" />
+                <input type="button" ref={inputRef} onClick={() => toggleForm()} className="btn btn-default" value="Cancel" />
                 <input type="submit" className="btn btn-primary" value="Save" />
             </div>
         </form>

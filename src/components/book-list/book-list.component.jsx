@@ -8,16 +8,22 @@ import { setListOfBooks } from '../../redux/list_of_books/list_of_books.actions'
 
 import './book-list.styles.css'
 
-const BookList = ({listOfBooks, selectedAuthorId, searchQuery, setListOfBooks}) => {
+const BookList = ({listOfBooks, authorProfileId, selectedAuthorId, searchQuery, setListOfBooks}) => {
     useEffect(() => {
         setListOfBooks(books)
     }, [setListOfBooks])
 
+    let currentAuthorId = selectedAuthorId
+
+    if(authorProfileId !== undefined) {
+        currentAuthorId = authorProfileId;
+    }
+
     const filteredByAuthorId = listOfBooks.filter(book => {
-        if(selectedAuthorId === '') {
+        if(currentAuthorId === '') {
             return true
         }
-        if(selectedAuthorId === book.author_id) {
+        if(currentAuthorId === book.author_id) {
             return true
         }
         return false
@@ -25,7 +31,7 @@ const BookList = ({listOfBooks, selectedAuthorId, searchQuery, setListOfBooks}) 
 
     const filteredByBookName = filteredByAuthorId.filter(book =>
             book.name.toLowerCase().includes(searchQuery.toLowerCase())        
-        );
+    );
     
 
     return (
