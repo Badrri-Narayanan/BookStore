@@ -3,8 +3,8 @@ import React from 'react';
 import { Route } from 'react-router-dom'
 
 import { connect } from 'react-redux'
-import AuthorListingPage from '../author-listing-page/author-listing-page.component';
-import BookListingPage from '../book-listing-page/book-listing-page.component';
+import AuthorListingPage from '../authors-listing-page/author-listing-page.component';
+import BookListingPage from '../books-listing-page/book-listing-page.component';
 
 const LandingPage = ({accessLevel}) => (
     <div>

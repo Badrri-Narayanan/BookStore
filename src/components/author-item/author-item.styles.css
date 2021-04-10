@@ -6,10 +6,15 @@
     display: flex;
     height: 260px;
     margin: auto;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 .author-item:hover {
     box-shadow: 0 8px 16px 0 white;
+    text-decoration: none;
+    color: black;
   }
 
 .author-dp{

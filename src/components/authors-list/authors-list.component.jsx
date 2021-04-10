@@ -16,8 +16,8 @@ const AuthorsList = ({listOfAuthors, setListOfAuthors}) => {
     return (
         <div className="author-item-list">
             {
-                listOfAuthors.map(({id, ...otherAuhtorProps}) => (
-                    <AuthorItem key={id} {...otherAuhtorProps} />
+                listOfAuthors.map(({...otherAuhtorProps},idx) => (
+                    <AuthorItem key={idx} {...otherAuhtorProps} />
                 ))
             }
         </div>

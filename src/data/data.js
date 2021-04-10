@@ -98,7 +98,7 @@ export const author = [
 		about: 'Cited by The New York Times in 2008 as the biggest selling English language novelist in India’s history, Chetan Bhagat is author, screenwriter, columnist and TV personality. He is known for Comedy-drama novels about young urban middle-class Indians. Some of his famous work includes Five Point Someone, 2 States, Half Girlfriend and One Indian Girl.',
 	},{
 		id: '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4b13', // unique random id auto generated
-		author_name: ' R. K. Narayan',
+		author_name: 'R. K. Narayan',
 		about: 'He was born in Chennai and due to his father’s transfers had to move around therefore changed many schools. His interest in reading was evident since a very young age and his hobby soon became a habit. He later graduated and decided to become a stay at home writer. His initial books were not that popular until his third novel, ‘The dark room’. Narayan wrote many novels after this which were published and soon became a well renowned author during his time in India.'
 	},{
 		id: '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4b14', // unique random id auto generated

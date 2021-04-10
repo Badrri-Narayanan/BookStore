@@ -1,0 +1,16 @@
+.add-button {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.horizontal-bottom {
+    width: 80%;
+    margin: auto;
+}
+
+.book-options {
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+}

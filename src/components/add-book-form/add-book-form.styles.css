@@ -1,0 +1,14 @@
+.add-book-form {
+    position: absolute;
+    width: 450px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid black;
+    top: 50%;
+    left: 35%;
+    margin: -25px 0 0 -25px;
+    z-index: 5;
+    background-color: white;
+}
