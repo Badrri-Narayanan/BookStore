@@ -8,16 +8,31 @@ import { setListOfBooks } from '../../redux/list_of_books/list_of_books.actions'
 
 import './book-list.styles.css'
 
-const BookList = ({listOfBooks, setListOfBooks}) => {
+const BookList = ({listOfBooks, selectedAuthorId, searchQuery, setListOfBooks}) => {
     useEffect(() => {
         setListOfBooks(books)
     }, [setListOfBooks])
 
+    const filteredByAuthorId = listOfBooks.filter(book => {
+        if(selectedAuthorId === '') {
+            return true
+        }
+        if(selectedAuthorId === book.author_id) {
+            return true
+        }
+        return false
+    });
+
+    const filteredByBookName = filteredByAuthorId.filter(book =>
+            book.name.toLowerCase().includes(searchQuery.toLowerCase())        
+        );
+    
+
     return (
         <div className="book-list">
             {
-                listOfBooks.map(({id, ...otherBookProps}) => (
-                    <BookItem key={id} {...otherBookProps} />
+                filteredByBookName.map(({...otherBookProps},idx) => (
+                    <BookItem key={idx} {...otherBookProps} />
                 ))
             }
         </div>
@@ -26,6 +41,8 @@ const BookList = ({listOfBooks, setListOfBooks}) => {
 
 const mapStateToProps = state => ({
     listOfBooks : state.books_list.listOfBooks,
+    searchQuery : state.books_list.searchQuery,
+    selectedAuthorId : state.books_list.selectedAuthorId,
 })
 
 const mapDispatchToProps = dispatch => ({

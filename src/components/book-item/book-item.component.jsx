@@ -10,7 +10,7 @@ const BookItem = ({name, publish_year, price}) => {
                 alt="bookcover"
                 className="book-cover" 
             />
-            <h5>{name}</h5>
+            <h6>{name}</h6>
             <div className="book-info">
                 <p>{publish_year}</p>
                 <p>Rs. {price}</p>
