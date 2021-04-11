@@ -4,6 +4,10 @@
     cursor: pointer;
 }
 
+.author-info-item {
+    padding-top: 10px;
+}
+
 .horizontal-bottom {
     width: 80%;
     margin: auto;

@@ -8,13 +8,15 @@ import AuthorItem from '../../components/author-item/author-item.component';
 
 import BookList from '../../components/book-list/book-list.component';
 
+import {Link} from 'react-router-dom';
+
 import './author.profile.styles.css'
 import AddBookForm from '../../components/add-book-form/add-book-form.component';
 import AuthorProfileHeader from '../../components/author-profile-header/author-profile-header.component';
 
 const AuthorProfilePage = (props) => {
     const {authorId} = props.match.params;
-    const {listOfAuthors, setListOfAuthors} = props;
+    const {listOfAuthors, accessLevel,setListOfAuthors} = props;
     const [bookFormHidden, toggleBookFormHidden] = useState(true);
 
     const showForm = () => {
@@ -36,28 +38,40 @@ const AuthorProfilePage = (props) => {
     
     return (
         <div>
-            <AuthorProfileHeader authorName={titleName} />
             {
-                (authorProfile !== null)?
-                    <div>
-                        <AuthorItem {...authorProfile[0]} />
-                        <hr/>
-                        {bookFormHidden ? null:<AddBookForm author_id={authorId} toggleForm={showForm} />}
-                        <BookList authorProfileId={authorId} />
-                        <div className="book-options">
-                            <div className="horizontal-bottom">
+                (accessLevel === "admin")?
+                <div>
+                    <AuthorProfileHeader authorName={titleName} />
+                    {
+                        (authorProfile !== null)?
+                            <div>
+                                <div className="author-info-item">
+                                    <AuthorItem  {...authorProfile[0]} />
+                                </div>
                                 <hr/>
+                                {bookFormHidden ? null:<AddBookForm author_id={authorId} toggleForm={showForm} />}
+                                <BookList authorProfileId={authorId} />
+                                <div className="book-options">
+                                    <div className="horizontal-bottom">
+                                        <hr/>
+                                    </div>
+                                    <img
+                                        className="add-button"
+                                        onClick={() => showForm()} 
+                                        src="https://icons-for-free.com/iconfiles/png/512/plus+icon-1320184416519705957.png" 
+                                        alt="add" 
+                                    />
+                                </div>
                             </div>
-                            <img
-                                className="add-button"
-                                onClick={() => showForm()} 
-                                src="https://icons-for-free.com/iconfiles/png/512/plus+icon-1320184416519705957.png" 
-                                alt="add" 
-                            />
-                        </div>
-                    </div>
-                    :
-                    <p>Invalid Author Profile</p>
+                            :
+                            <p>Invalid Author Profile</p>
+                    }
+                </div>
+                :
+                <div>
+                    <h2 className="text-warning">Unauthorized Access!!!</h2>
+                    <Link to="/">Go to List of Books</Link>
+                </div>
             }
         </div>
     );
@@ -65,6 +79,7 @@ const AuthorProfilePage = (props) => {
 
 const mapStateToProps = state => ({
     listOfAuthors : state.authors_list.listOfAuthors,
+    accessLevel : state.access_level.accessLevel,
 });
 
 const mapDispatchToProps = dispatch => ({

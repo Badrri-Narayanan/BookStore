@@ -9,7 +9,7 @@ const isSignedInReducer = (state = INITIAL_STATE, action) => {
         case isSignedInActionTypes.SET_SIGNED_IN_STATE :
             return {
                 ...state,
-                isSignedIn : true,
+                isSignedIn : !state.isSignedIn,
             }
         default:
             return state

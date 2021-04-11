@@ -1,8 +1,9 @@
 .book-list {
-    width: 65%;
+    width: 70%;
     display: flex;
     margin: auto;
     flex-wrap: wrap;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
+    padding-top: 10px;
 }

@@ -3,3 +3,11 @@
   justify-content: center;
 }
 
+.logout-btn {
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  right: 5px;
+  height: 20px;
+  padding-bottom: 25px;
+}
