@@ -1,5 +1,5 @@
 .author-profile-header {
-    background-color: blue;
+    background-color: #234562;
     display: flex;
     flex-direction: row;
 }
@@ -7,4 +7,8 @@
 .search-box-container {
     width: 900px;
     padding-top: 5px;
+}
+
+.arrow-btn {
+    font-size:20px;
 }

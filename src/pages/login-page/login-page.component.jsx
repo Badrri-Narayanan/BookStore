@@ -58,12 +58,12 @@ const LoginPage = ({setAccessLevel, setIsSignedInState}) => {
                     required/>
 
                     <div className="login-options">
-                        <p><input type="checkbox" />Remember me</p>
+                        <p><input type="checkbox" /> Remember me</p>
                         <a href="/">Forgot Password?</a>
                     </div>
                     <div className="login-options">
-                        <input type="button" className="btn btn-default" value="Cancel" />
-                        <input type="submit" className="btn btn-primary" value="Login" />
+                        <input type="button" className="btn btn-default fullwidth" value="Cancel" />
+                        <input type="submit" className="btn btn-primary fullwidth" value="Login" />
                     </div>
                 </form>
             </div>
