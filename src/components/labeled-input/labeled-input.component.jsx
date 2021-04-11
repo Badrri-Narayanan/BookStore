@@ -11,7 +11,7 @@ const LabeledInput = ({labelName, handleClick, isTextArea, isUploadButtonRequire
                 <input className={`${(isUploadButtonRequired !== undefined)? "with-button" : "box-size"}`} 
                     {...otherProps}/>
                 :
-                <textarea className="box-size" />
+                <textarea {...otherProps} className="box-size" />
             }
             {
                 (isUploadButtonRequired !== undefined)?

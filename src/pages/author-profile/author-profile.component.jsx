@@ -42,7 +42,7 @@ const AuthorProfilePage = (props) => {
                     <div>
                         <AuthorItem {...authorProfile[0]} />
                         <hr/>
-                        {bookFormHidden ? null:<AddBookForm toggleForm={showForm} />}
+                        {bookFormHidden ? null:<AddBookForm author_id={authorId} toggleForm={showForm} />}
                         <BookList authorProfileId={authorId} />
                         <div className="book-options">
                             <div className="horizontal-bottom">

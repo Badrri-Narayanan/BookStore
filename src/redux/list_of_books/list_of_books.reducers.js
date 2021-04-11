@@ -1,4 +1,5 @@
 import BooksListActionTypes from "./list_of_books.types";
+import AppendToBookList from "./list_of_books.util";
 
 const INITIAL_STATE = {
     listOfBooks : [],
@@ -22,6 +23,11 @@ const bookListReducer = (state=INITIAL_STATE, action) => {
             return {
                 ...state,
                 selectedAuthorId: action.payload,
+            }
+        case BooksListActionTypes.APPEND_TO_LIST_OF_BOOKS:
+            return {
+                ...state,
+                listOfBooks: AppendToBookList(state.listOfBooks, action.payload),
             }
         default:
             return state

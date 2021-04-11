@@ -14,3 +14,8 @@ export const setSelectedAuthorId = (id) => ({
     type : BooksListActionTypes.SET_SELECTED_AUTHOR_ID,
     payload : id,
 })
+
+export const appendToListOfBooks = (new_book_item) => ({
+    type : BooksListActionTypes.APPEND_TO_LIST_OF_BOOKS,
+    payload: new_book_item,
+})
