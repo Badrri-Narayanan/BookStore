@@ -10,6 +10,15 @@ const AddBookForm = ({toggleForm}) => {
     }
 
     const inputRef = useRef();
+    const hiddenFileInput = useRef(null);
+
+    const handleFileUpload = () => {
+        hiddenFileInput.current.click();
+    }
+
+    const handleChange = (event) => {
+        console.log(event.target.files[0])
+    }
 
     useEffect(()=> {
         inputRef.current.focus();
@@ -28,10 +37,17 @@ const AddBookForm = ({toggleForm}) => {
                 isTextArea
                 maxLength="300"
             required/>
+            <input 
+                type="file" 
+                ref={hiddenFileInput} 
+                style={{display:'none'}}
+                onChange={handleChange} 
+            />
             <LabeledInput
                 labelName="Image"
                 type="text"
-                isButtonRequired="yes"
+                isUploadButtonRequired="yes"
+                handleClick={() => handleFileUpload()}
             />
             <LabeledInput
                 labelName="Price"

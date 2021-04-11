@@ -27,9 +27,16 @@ const AuthorProfilePage = (props) => {
 
     let authorProfile = null;
     authorProfile = listOfAuthors.filter(author => (author.id === authorId))
+    let titleName
+    try {
+        titleName = authorProfile[0].author_name
+    } catch {
+        titleName = "loading"
+    }
+    
     return (
         <div>
-            <AuthorProfileHeader authorName={authorProfile[0].author_name} />
+            <AuthorProfileHeader authorName={titleName} />
             {
                 (authorProfile !== null)?
                     <div>

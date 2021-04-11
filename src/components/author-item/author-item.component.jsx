@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 
 import './author-item.styles.css'
 
-const AuthorItem = ({id, author_name, about}) => {
+const AuthorItem = ({id, author_name, img, about}) => {
     return (
         <Link to={`/author/${id}`} className="author-item" >
             <img 
-                src={`https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png`} 
+                src={img} 
                 alt="profile_pic"
                 className="author-dp" 
             />

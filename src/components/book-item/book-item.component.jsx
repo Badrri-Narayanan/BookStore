@@ -2,11 +2,11 @@ import React from 'react'
 
 import './book-item.styles.css'
 
-const BookItem = ({name, publish_year, price}) => {
+const BookItem = ({name, publish_year, price, img}) => {
     return (
         <div className="book-item">
             <img 
-                src={`https://edit.org/images/cat/book-covers-big-2019101610.jpg`} 
+                src={img} 
                 alt="bookcover"
                 className="book-cover" 
             />
